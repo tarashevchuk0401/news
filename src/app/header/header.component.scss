@@ -1,0 +1,24 @@
+main {}
+
+.logo_icon {
+    width: 100px;
+    height: 50px;
+    font-size: 50px;
+}
+
+.logo {
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+}
+
+mat-toolbar-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.navigation_btn{
+    margin-left: 20px;
+}
+

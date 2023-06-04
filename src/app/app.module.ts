@@ -9,6 +9,10 @@ import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './header/header.component';
 import { MaterialModule } from './material/material.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AddnewsComponent } from './addnews/addnews.component';
+import { ServerService } from './services/server.service';
+import {  HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,15 +20,19 @@ import { MaterialModule } from './material/material.module';
     FormComponent,
     HomepageComponent,
     LoginComponent,
-    HeaderComponent
+    HeaderComponent,
+    AddnewsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule, 
-    MaterialModule
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ServerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

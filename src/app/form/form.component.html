@@ -1,1 +1,85 @@
-<p>form works!</p><button mat-rised-button>btn</button>
+<mat-vertical-stepper>
+    <mat-step [stepControl]="firstFG">
+        <form [formGroup]="firstFG">
+            <ng-template matStepLabel>
+                <div class="text">Please write your name and surname</div>
+            </ng-template>
+            <mat-form-field>
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="name" required>
+                <mat-error>Enter surname</mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <mat-label>Surname</mat-label>
+                <input matInput formControlName="surname" required>
+                <mat-error>Enter surname</mat-error>
+            </mat-form-field>
+            <div>
+                <button mat-raised-button color="primary" matStepperNext>
+                    Next
+                    <mat-icon>arrow_forward_ios</mat-icon>
+                </button>
+            </div>
+        </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFG">
+        <form [formGroup]="secondFG">
+            <ng-template matStepLabel>Please chose sex and enter your date of birth</ng-template>
+            <mat-form-field>
+                <mat-label>Sex</mat-label>
+                <mat-select formControlName="sex">
+                    <mat-option value="male">Male</mat-option>
+                    <mat-option value="female">Female</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <mat-label>Date of birth</mat-label>
+                <input matInput [matDatepicker]="picker1" formControlName="dateOfBirth" required="">
+                <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+            <div>
+                <button mat-raised-button color="primary" matStepperPrevious>
+                    Back
+                    <mat-icon>arrow_back_ios</mat-icon>
+                </button>
+                <button mat-raised-button color="primary" matStepperNext>
+                    Next
+                    <mat-icon>arrow_forward_ios</mat-icon>
+                </button>
+            </div>
+        </form>
+    </mat-step>
+    <mat-step>
+        <form [formGroup]="thirdFG">
+            <ng-template matStepLabel>Set new password and your email</ng-template>
+            <mat-form-field>
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email" type="email" required>
+                <mat-error>Enter email</mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <mat-label>Password</mat-label>
+                <input matInput formControlName="password" type="password" required>
+                <mat-error>Enter password</mat-error>
+            </mat-form-field>
+            <div>
+                <button mat-raised-button color="primary" matStepperPrevious>
+                    Back
+                    <mat-icon>arrow_back_ios</mat-icon>
+                </button>
+            </div>
+            <mat-checkbox formControlName="agreement" class="example-margin" required color="blue">
+                I'm agree with rules and policy of site
+            </mat-checkbox>
+        </form>
+        <button mat-raised-button color="primary" (click)="submitForm()"
+            [disabled]="thirdFG.invalid || secondFG.invalid || firstFG.invalid || thirdFG.value.agreement ===  false">
+            Submit
+        </button>
+
+    </mat-step>
+</mat-vertical-stepper>

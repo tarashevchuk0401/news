@@ -4,12 +4,14 @@ import { MaterialModule } from './material/material.module';
 import { HomepageComponent } from './homepage/homepage.component';
 import { LoginComponent } from './login/login.component';
 import { FormComponent } from './form/form.component';
+import { AddnewsComponent } from './addnews/addnews.component';
 
 const routes: Routes = [
-  {path: '', component: HomepageComponent},
+  {path: '', component: FormComponent},
   {path: 'homepage', component: HomepageComponent},
   {path: 'login', component: LoginComponent},
   {path: 'form', component: FormComponent},
+  {path: 'addnews', component: AddnewsComponent},
 ];
 
 @NgModule({

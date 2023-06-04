@@ -1,0 +1,33 @@
+<form #addNewsForm="ngForm" (ngSubmit)="addNewsForm">
+    <mat-toolbar color="primary">
+        <span>Creane your own news!</span>
+    </mat-toolbar>
+    <mat-form-field>
+        <mat-label>Title</mat-label>
+        <input class="input" matInput [(ngModel)]="title" ngModel name="title" required>
+        <mat-error>Please enetr title </mat-error>
+    </mat-form-field>
+    <mat-toolbar color="primary">
+        <span>Add some interesting text</span>
+    </mat-toolbar>
+    <mat-form-field>
+        <mat-label>Text</mat-label>
+        <textarea matInput name="" id="" cols="10" rows="10" ngModel name="content" required></textarea>
+        <mat-error>Please add some text </mat-error>
+    </mat-form-field>
+    <mat-toolbar color="primary">
+        <span>Select the category of your news</span>
+    </mat-toolbar>
+    <mat-form-field>
+        <mat-label>Select news section</mat-label>
+        <mat-select [(ngModel)]="tag" ngModel name="tag" required>
+            <mat-option value="sport">Sport</mat-option>
+            <mat-option value="technologies">Technologies</mat-option>
+            <mat-option value="travel">Travel</mat-option>
+            <mat-option value="economy">Economy</mat-option>
+        </mat-select>
+        <mat-error>Please chose category</mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="primary" [disabled]="addNewsForm.invalid" (click)="addNews(addNewsForm)"
+        type="submit">Add News</button>
+</form>

@@ -1,17 +1,24 @@
-<main>
-    <section>
-        <div class="logo">
-            LOGO
-        </div>
-    </section>
-    <section>
-        <button mat-raised-button color="primary">
-        <mat-icon>person</mat-icon>
-            Register
-        </button>
-        <button mat-raised-button color="primary">
-            <mat-icon>logout</mat-icon>
-            LogOut
-        </button>
-    </section>
-</main>
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <section>
+            <div class="logo" routerLink="/homepage">
+                <mat-icon color="basic" class="logo_icon">newspaper</mat-icon>
+                <div>NEWS</div>
+            </div>
+        </section>
+        <section class="navigation">
+            <button class="navigation_btn" mat-raised-button routerLink="/addnews">
+                <mat-icon>add</mat-icon>
+                Add news
+            </button>
+            <button class="navigation_btn" mat-raised-button routerLink="/form">
+                <mat-icon>person</mat-icon>
+                Register
+            </button>
+            <button mat-raised-button class="navigation_btn">
+                <mat-icon>logout</mat-icon>
+                LogOut
+            </button>
+        </section>
+    </mat-toolbar-row>
+</mat-toolbar>
